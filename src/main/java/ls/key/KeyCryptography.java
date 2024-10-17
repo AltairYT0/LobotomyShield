@@ -43,7 +43,6 @@ public class KeyCryptography {
 
         byte[] encryptedBytes = cipher.doFinal(plaintext.getBytes(StandardCharsets.UTF_8));
 
-        // Combine salt, IV, and encrypted bytes
         byte[] combinedBytes = new byte[SALT_SIZE + IV_SIZE + encryptedBytes.length];
         System.arraycopy(saltBytes, 0, combinedBytes, 0, SALT_SIZE);
         System.arraycopy(initializationVector, 0, combinedBytes, SALT_SIZE, IV_SIZE);
